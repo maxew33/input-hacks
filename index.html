@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS is so powerful</title>
+</head>
+
+<body>
+    <!--  input 4 the langage toggle -->
+    <input type="checkbox" id="toggle" class="hidden">
+
+    <!-- inputs 4 the navigation  -->
+    <input type="radio" name="tab" id="slide1" class="hidden" checked />
+    <input type="radio" name="tab" id="slide2" class="hidden" />
+    <input type="radio" name="tab" id="slide3" class="hidden" />
+    <input type="radio" name="tab" id="slide4" class="hidden" />
+
+    <div class="main-container">
+        <div class="navbar">
+
+            <!--   link to my portfolio -->
+            <a href="https://maxime-malfilatre.com" class="signature" target="_blank">
+                <div class="link">
+                    <span class="brace">
+                        {
+                    </span>
+                    <span class="before">
+                        <span class="before-text">
+                            &nbsp;by
+                        </span>
+                    </span>
+                    <span class="my-name">
+                        m
+                    </span>
+                    <span class="after">
+                        <span class="after-text">
+                            <span class="spin">axe</span>
+                            <span>w</span>
+                        </span>
+                    </span>
+                    <span class="brace">
+                        }
+                    </span>
+                </div>
+            </a>
+
+            <!--   navigation tabs -->
+
+            <div class="nav">
+                <label for="slide1" id="label4slide1" class="slide-tab">
+                    <span class="lang-en">
+                        home
+                    </span>
+                    <span class="lang-fr">
+                        accueil
+                    </span>
+                </label>
+                <label for="slide2" id="label4slide2" class="slide-tab">
+                    checkbox
+                </label>
+                <label for="slide3" id="label4slide3" class="slide-tab">
+                    radio
+                </label>
+                <label for="slide4" id="label4slide4" class="slide-tab">
+                    textarea
+                </label>
+            </div>
+
+            <!--   lang toggle -->
+
+            <div class="langs">
+                EN
+                <label for="toggle" class="lang-toggle">
+                </label>
+                FR
+            </div>
+        </div>
+
+        <div class="slides-container">
+            <div class="slide slide-1">
+                <h1>
+                    <span class="lang-en">
+                        The power of inputs
+                    </span>
+                    <span class="lang-fr">
+                        les inputs sont tes amis ;)
+                    </span>
+                </h1>
+                <h2 class="titre">
+                    <span class="lang-en">
+                        Why this presentation ?
+                    </span>
+                    <span class="lang-fr">
+                        Il sert à quoi ce site ?
+                    </span>
+                </h2>
+                <div class="presentation">
+                    <div class="lang-en">
+                        The aim of this slideshow is to introduce you to a collection of css tricks you can easily use
+                        in your website.
+                        <br />
+                        Everything here is made with html and css and love.
+                    </div>
+                    <div class="lang-fr">
+                        L'objectif de ce diaporama est de vous présenter une petite panoplie de tricks utilisable en css
+                        pour dynamiser votre site.
+                        <br />
+                        Bien sûr, tout ici n'est fait que d'html, de css et d'amour.
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide slide-2">
+                <h2 class="slide-title">
+                    <span class="lang-en">The checkbox hack</span>
+                    <span class="lang-fr">Le "checkbox hack"</span>
+                </h2>
+                <div class="presentation">
+                    <div class="lang-en">
+                        The aim of this slideshow is to introduce you to a collection of css tricks you can easily use
+                        in your website.
+                        <br />
+                        Everything here is made with html and css and love.
+                    </div>
+                    <div class="lang-fr">
+                        L'objectif de ce diaporama est de vous présenter une petite panoplie de tricks utilisable en css
+                        pour dynamiser votre site.
+                        <br />
+                        Bien sûr, tout ici n'est fait que d'html, de css et d'amour.
+                    </div>
+                </div>
+
+                <input type="checkbox" name="apple" id="apple-checkbox">
+
+                <label for="apple-checkbox" class="apples-container">
+                    <div class="full-apple">
+                    </div>
+                    <div class="eaten-apple">
+                    </div>
+                </label>
+            </div>
+
+            <div class="slide slide-3">
+                <h2 class="slide-title">
+                    <span class="lang-en">The hover hack</span>
+                    <span class="lang-fr">Le "hover hack"</span>
+                </h2>
+                <div class="presentation">
+                    <div class="lang-en">
+                        The aim of this slideshow is to introduce you to a collection of css tricks you can easily use
+                        in your website.
+                        <br />
+                        Everything here is made with html and css and love.
+                    </div>
+                    <div class="lang-fr">
+                        L'objectif de ce diaporama est de vous présenter une petite panoplie de tricks utilisable en css
+                        pour dynamiser votre site.
+                        <br />
+                        Bien sûr, tout ici n'est fait que d'html, de css et d'amour.
+                    </div>
+                </div>
+                <input type="radio" name="apple-color" id="red-apple" checked>
+                <input type="radio" name="apple-color" id="green-apple">
+                <input type="radio" name="apple-color" id="yellow-apple">
+
+                <label for="red-apple" class="label4apple-color red-apple-label"></label>
+
+                <label for="green-apple" class="label4apple-color green-apple-label"></label>
+
+                <label for="yellow-apple" class="label4apple-color yellow-apple-label"></label>
+
+                <div class="apples-container">
+                    <div class="full-apple">
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide slide-4">
+                    <textarea name="" id="worm-drag" cols="30" rows="10"></textarea>
+                    
+                    <div class="worm"></div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
