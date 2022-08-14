@@ -5,11 +5,19 @@
 }
 
 :root {
-    --main-bg: #ddd;
+    --main-bg: #eff0f3;
+    --btn-color: #ff8e3c;
+    --secondary-bg: #fffffe;
+    --tertiary-color: #d9376e;
+    --text-color: #0d0d0d;
+    --slide-1-bg: #aaa;
+    --slide-2-bg: #bbb;
+    --slide-3-bg: #ccc;
+    --slide-4-bg: #ddd;
     --navbar-bg: blue;
     --scale-value: 0;
     --translate-value: 0;
-    --apple-color: red;
+    --apple-color: orangered;
 }
 
 body {
@@ -88,7 +96,7 @@ label:hover {
     align-items: center;
     position: relative;
     height: 1.5rem;
-    width: 3rem;
+    width: 2.5rem;
     border: 2px solid #222;
     border-radius: 25rem;
     cursor: pointer;
@@ -117,7 +125,7 @@ label:hover {
 #toggle:checked {
     /* (1) I move the cursor to FR */
     & ~ .main-container .lang-toggle::after {
-        transform: translate(150%);
+        transform: translate(100%);
     }
 
     /* (2) I remove the english text */
@@ -139,6 +147,17 @@ label:hover {
     height: 100vh;
     transform: translateX(var(--translate-value));
     transition: 0.25s transform ease-in-out;
+    // background: linear-gradient(
+    //     90deg,
+    //     var(--slide-1-bg) 25%,
+    //     var(--slide-2-bg) 25%,
+    //     var(--slide-2-bg) 50%,
+    //     var(--slide-3-bg) 50%,
+    //     var(--slide-3-bg) 75%,
+    //     var(--slide-4-bg) 75%,
+    //     var(--slide-4-bg) 0
+    // );
+    background: var(--main-color);
 }
 
 .slide {
@@ -152,72 +171,158 @@ label:hover {
 
 /* slide 2 */
 
+#apple-checkbox {
+    display: none;
+}
+
 #apple-checkbox:checked ~ .apples-container {
-    pointer-events: none;
     .eaten-apple {
         display: block;
     }
-}
-.apples-container {
-    .full-apple,
-    .eaten-apple {
-        position: absolute;
-        height: 10rem;
-        width: 10rem;
-    }
     .full-apple {
-        background: radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
-            radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
-            radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
-            radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
-    }
-    .eaten-apple {
-        background: radial-gradient(circle at 75% 50%, var(--main-bg) 25%, transparent 0),
-            radial-gradient(circle at 20% 63%, var(--main-bg) 20%, transparent 0),
-            radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
-            radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
-            radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
-            radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
         display: none;
     }
+}
+.apples-container {
+    cursor: pointer;
+    display: inline-block;
+    height: 12rem;
+    width: 10rem;
+    position: relative;
+
+    // .full-apple {
+    //     // background: radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
+    //     //     radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
+    //     //     radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
+    //     //     radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
+    //     border-radius: 50%;
+    //     background: var(--apple-color);
+    //     box-shadow: inset 1rem -.5rem #22222255;
+
+    //     /* the leaves */
+
+    //     &::after{
+    //         content: "";
+    //         left: 30%;
+    //         top: -30%;
+    //         position: absolute;
+    //         height: 3.5rem;
+    //         width: 2.5rem;
+    //         border-radius: 0% 100% 0% 100% / 20% 100% 0% 80%;
+    //         background: linear-gradient(57deg, #4f7942 50%, #355e3b 0);
+    //     }
+
+    //     /* and a stick */
+
+    //     &::before{
+    //         content: "";
+    //         position: absolute;
+    //         left: 52.5%;
+    //         top: -7.5%;
+    //         height: 2rem;
+    //         width: 5rem;
+    //         border-radius: 50% 50% 100% 0% / 100% 100% 0% 0%;
+    //         border: solid brown;
+    //         border-width: 0 0 0 .5rem;
+    //     }
+
+    // }
+    // .eaten-apple {
+    //     background: radial-gradient(circle at 75% 50%, var(--main-bg) 25%, transparent 0),
+    //         radial-gradient(circle at 20% 63%, var(--main-bg) 20%, transparent 0),
+    //         radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
+    //         radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
+    //         radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
+    //         radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
+    //     display: none;
+    // }
+}
+
+.full-apple,
+.eaten-apple {
+    position: absolute;
+    height: 9rem;
+    width: 10rem;
+    bottom: 0;
+    --stick-width: .5rem;
+
+    // background: radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
+    //     radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
+    //     radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
+    //     radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
+    border-radius: 50%;
+    background: var(--apple-color);
+    box-shadow: inset 1rem -0.5rem #22222255;
+
+    /* the leaves */
+
+    &::after {
+        content: "";
+        left: 30%;
+        top: -30%;
+        position: absolute;
+        height: 40%;
+        width: 25%;
+        border-radius: 0% 100% 0% 100% / 20% 100% 0% 80%;
+        background: linear-gradient(57deg, #4f7942 50%, #355e3b 0);
+    }
+
+    /* and a stick */
+
+    &::before {
+        content: "";
+        position: absolute;
+        left: 52.5%;
+        top: -7.5%;
+        height: 25%;
+        width: 50%;
+        border-radius: 50% 50% 100% 0% / 100% 100% 0% 0%;
+        border: solid brown;
+        border-width: 0 0 0 var(--stick-width);
+    }
+}
+
+.eaten-apple {
+    display: none;
+    background: radial-gradient(circle at 85% 30%, var(--slide-2-bg) 15%, transparent 0),
+        radial-gradient(circle at 90% 60%, var(--slide-2-bg) 22.5%, transparent 0), var(--apple-color);
 }
 
 /* slide 3 */
 
-.label4apple-color{
+.label4apple-color {
     display: inline-block;
     height: 2rem;
     aspect-ratio: 1;
     cursor: pointer;
 }
 
-.red-apple-label{
+.red-apple-label {
     background: red;
 }
 
-.green-apple-label{
+.green-apple-label {
     background: green;
 }
 
-.yellow-apple-label{
+.yellow-apple-label {
     background: yellow;
 }
 
-#red-apple:checked ~ .apples-container{
+#red-apple:checked ~ .apples-container {
     --apple-color: red;
 }
 
-#green-apple:checked ~ .apples-container{
+#green-apple:checked ~ .apples-container {
     --apple-color: green;
 }
 
-#yellow-apple:checked ~ .apples-container{
+#yellow-apple:checked ~ .apples-container {
     --apple-color: yellow;
 }
 /* slide 4 */
 
-
-#worm-drag{
+#apple-drag {
     position: relative;
     border: none;
     background: transparent;
@@ -225,19 +330,15 @@ label:hover {
     display: inline-block;
 }
 
-.worm{
+#apple-drag + .full-apple {
     display: inline-block;
     position: relative;
     left: -1.25rem;
-    bottom: -.75rem;
-    width: 2rem;
-    aspect-ratio: 1;
+    bottom: -0.5rem;
+    width: 1.5rem;
+    height: 1.35rem;    
+    --stick-width: .2rem;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 60%, var(--apple-color) 40%, transparent 0),
-        radial-gradient(circle at 37.5% 20%, transparent 20%, var(--main-bg) 0, var(--main-bg) 50%, transparent 0),
-        radial-gradient(circle at 55% 30%, #4f7942 20%, transparent 0),
-        radial-gradient(circle at 20% 30%, #355e3b 20%, transparent 0);
-    
 }
 
 /* ===> SIGNATURE <=== */
